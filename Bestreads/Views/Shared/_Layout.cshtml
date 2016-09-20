@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="/Books"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet"
+          href="~/Assets/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+          href="~/Assets/node_modules/bootstrap/dist/js/bootstrap.min.js" />
+    <script src="~/Assets/node_modules/core-js/client/shim.min.js"></script>
+    <script src="~/Assets/node_modules/zone.js/dist/zone.js"></script>
+    <script src="~/Assets/node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="~/Assets/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="~/Assets/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/Assets/systemjs.config.js"></script>
+    <script>
+        System.import('app').catch(function (err) { console.error(err); });
+    </script>
+   
+</head>
+<body style="color: teal; background-color: palegoldenrod;">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: darkslategray;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Bestreads", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color: palegoldenrod;" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "../Home/Index", "Home", new { @style = "color: palegoldenrod;" })</li>
+                    <li>@Html.ActionLink("Books", "../Books", "BookModels", new { @style = "color: palegoldenrod;" })</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mijatović, Porobija</p>
+        </footer>
+    </div>
+
+
+</body>
+</html>
